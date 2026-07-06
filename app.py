@@ -1,9 +1,9 @@
 import sqlite3
 
 conn = sqlite3.connect("tasks.db")
-
 cursor = conn.cursor()
 
+# Create the table
 cursor.execute("""
 CREATE TABLE IF NOT EXISTS tasks(
     id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -12,7 +12,23 @@ CREATE TABLE IF NOT EXISTS tasks(
 )
 """)
 
+# Insert sample data
+cursor.execute(
+    "INSERT INTO tasks(title, completed) VALUES (?, ?)",
+    ("Learn SQLite", 0)
+)
+
+cursor.execute(
+    "INSERT INTO tasks(title, completed) VALUES (?, ?)",
+    ("Study Python", 1)
+)
+
+cursor.execute(
+    "INSERT INTO tasks(title, completed) VALUES (?, ?)",
+    ("Finish Homework", 0)
+)
+
 conn.commit()
 conn.close()
 
-print("Database created!")
+print("Database created and sample data inserted.")
