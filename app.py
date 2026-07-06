@@ -20,12 +20,12 @@ cursor.execute(
 
 cursor.execute(
     "INSERT INTO tasks(title, completed) VALUES (?, ?)",
-    ("Study Python", 1)
+    ("submit assignment on time", 1)
 )
 
 cursor.execute(
     "INSERT INTO tasks(title, completed) VALUES (?, ?)",
-    ("Finish Homework", 0)
+    ("Finish labs", 0)
 )
 
 conn.commit()
